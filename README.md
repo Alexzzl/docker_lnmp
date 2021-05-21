@@ -8,10 +8,17 @@ bin - docker启动配置及脚本
 config - docker容器的应用所需配置文件
 dockerfile - docker容器的构建配置dockerfile文件
 
-#### 使用教程
+#### [使用教程](https://learnku.com/articles/39417)
 
 1. 确保 docker-compose.yml 中目录挂载的目录或文件存在 
 1. 本地执行bin下的docker-compose.yml即可
+```
+cd docker/bin
+```
+
+```
+docker-compose -f docker-compose-linux.yml up -d --force-recreate --remove-orphans
+```
 
 #### 建议
 1. windows 下建议放在e盘下创建docker文件夹放置当前docker仓库,并在e盘下创建data文件夹放mysql和应用日志等文件夹
