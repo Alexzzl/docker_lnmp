@@ -8,11 +8,11 @@ services:
     tty: true
     container_name: nginx
     volumes:
-      - /data/www:/var/www/html
-      - /data/logs/nginx:/var/log/nginx
-      - /data/docker/config/nginx/conf.d:/etc/nginx/conf.d
-      - /data/docker/config/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /etc/letsencrypt:/etc/letsencrypt
+      - D:\Alex\data\www:/var/www/html
+      - D:\Alex\data\logs\nginx:/var/log/nginx
+      - D:\Alex\data\docker\config\nginx\conf.d:/etc/nginx/conf.d
+      - D:\Alex\data\docker\config\nginx\nginx.conf:/etc/nginx/nginx.conf
+      - D:\Alex\data\etc\letsencrypt:/etc/letsencrypt
     networks:
      - lnmp-networks
   php7:
@@ -21,10 +21,10 @@ services:
     restart: always
     container_name: php7
     volumes:
-      - /data/www:/var/www/html
-      - /data/logs/php:/var/log/php
-      - /data/docker/config/php/php.ini:/usr/local/etc/php/php.ini
-      - /data/docker/config/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - D:\Alex\data\www:/var/www/html
+      - D:\Alex\data\logs\php:/var/log/php
+      - D:\Alex\data\docker\config\php\php.ini:/usr/local/etc/php/php.ini
+      - D:\Alex\data\docker\config\php\www.conf:/usr/local/etc/php-fpm.d/www.conf
     depends_on:
       - nginx
     networks:
@@ -35,9 +35,9 @@ services:
     tty: true
     restart: always
     volumes:
-      - /data/docker/config/redis/redis.conf:/etc/redis/redis.conf
-      - /data/redis:/var/lib/redis
-      - /data/logs/redis:/var/log/redis
+      - D:\Alex\data\docker\config\redis\redis.conf:/etc/redis/redis.conf
+      - D:\Alex\data\redis:/var/lib/redis
+      - D:\Alex\data\logs\redis:/var/log/redis
     networks:
      - lnmp-networks
   mysql:
@@ -48,10 +48,10 @@ services:
     ports:
       - "3306:3306" #mysql
     volumes:
-      - /data/mysql:/var/lib/mysql
-      - /data/docker/config/mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
-      - /data/logs/mysql:/var/log/mysql
-      - /data/mysqlback:/data/mysqlback
+      - D:\Alex\data\mysql:/var/lib/mysql
+      - D:\Alex\data\docker\config\mysql\mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - D:\Alex\data\logs\mysql:/var/log/mysql
+      - D:\Alex\data\mysqlback:/data/mysqlback
     environment:
       MYSQL_ROOT_PASSWORD: root
     networks:
