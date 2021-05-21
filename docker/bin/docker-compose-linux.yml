@@ -8,11 +8,11 @@ services:
     tty: true
     container_name: nginx
     volumes:
-      - /data/www:/var/www/html
-      - /data/logs/nginx:/var/log/nginx
-      - /data/docker/config/nginx/conf.d:/etc/nginx/conf.d
-      - /data/docker/config/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /etc/letsencrypt:/etc/letsencrypt
+      - E:\alex\docker_lnmp\www:/var/www/html
+      - E:\alex\docker_lnmp\logs\nginx:/var/log/nginx
+      - E:\alex\docker_lnmp\docker\config\nginx\conf.d:/etc/nginx/conf.d
+      - E:\alex\docker_lnmp\docker\config\nginx\nginx.conf:/etc/nginx/nginx.conf
+      - E:\etc\letsencrypt:/etc/letsencrypt
     networks:
      - lnmp-networks
   php7:
@@ -21,10 +21,10 @@ services:
     restart: always
     container_name: php7
     volumes:
-      - /data/www:/var/www/html
-      - /data/logs/php:/var/log/php
-      - /data/docker/config/php/php.ini:/usr/local/etc/php/php.ini
-      - /data/docker/config/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - E:\alex\docker_lnmp\www:/var/www/html
+      - E:\alex\docker_lnmp\logs\php:/var/log/php
+      - E:\alex\docker_lnmp\docker\config\php\php.ini:/usr/local/etc/php/php.ini
+      - E:\alex\docker_lnmp\docker\config\php\www.conf:/usr/local/etc/php-fpm.d/www.conf
     depends_on:
       - nginx
     networks:
@@ -35,9 +35,9 @@ services:
     tty: true
     restart: always
     volumes:
-      - /data/docker/config/redis/redis.conf:/etc/redis/redis.conf
-      - /data/redis:/var/lib/redis
-      - /data/logs/redis:/var/log/redis
+      - E:\alex\docker_lnmp\docker\config\redis\redis.conf:/etc/redis/redis.conf
+      - E:\alex\docker_lnmp\redis:/var/lib/redis
+      - E:\alex\docker_lnmp\logs\redis:/var/log/redis
     networks:
      - lnmp-networks
   mysql:
@@ -48,13 +48,13 @@ services:
     ports:
       - "3306:3306" #mysql
     volumes:
-      - /data/mysql:/var/lib/mysql
-      - /data/docker/config/mysql/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
-      - /data/logs/mysql:/var/log/mysql
-      - /data/mysqlback:/data/mysqlback
+      - E:\data\mysql:/var/lib/mysql
+      - E:\data\docker\config\mysql\mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
+      - E:\data\logs\mysql:/var/log/mysql
+      - E:\data\mysqlback:/data/mysqlback
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: 123456
     networks:
-      - lnmp-networks
+      - lnmp-networks  
 networks:
  lnmp-networks:
