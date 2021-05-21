@@ -14,6 +14,9 @@ dockerfile - docker容器的构建配置dockerfile文件
 1. 本地执行bin下的docker-compose.yml即可
 ```
 cd docker/bin
+```
+
+```
 docker-compose -f docker-compose-linux.yml up -d --force-recreate --remove-orphans
 ```
 
